@@ -1,0 +1,17 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "runserver": " cross-env PYTHONUNBUFFERED=1 pipenv run python manage.py runserver 0:8000",
+    "dev": " concurrently npm:runserver",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.0.2",
+    "cross-env": "^6.0.3"
+  }
+}
