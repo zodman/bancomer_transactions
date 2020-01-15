@@ -1,0 +1,55 @@
+{% extends "admin/change_list.html" %}
+{% block content_title %}
+    <h1> Summary </h1>
+{% endblock %}
+{% block result_list %}
+
+<div class=”results”>
+    <table>
+        
+    <thead>
+      <tr>
+        <th>
+          <div class=”text”>
+            <a href=”#”>Category</a>
+          </div>
+        </th>
+        <th>
+          <div class=”text”>
+            <a href=”#”>Total</a>
+          </div>
+        </th>
+        <th>
+          <div class=”text”>
+            <a href=”#”>Total Sales</a>
+          </div>
+        </th>
+	</tr>
+    </thead>
+    <tbody>
+      {% for row in summary %}
+      <tr class=”{% cycle row1 row2 %}”>
+        <td> {{ row.category__name }} </td>
+        <td> {{ row.total|floatformat|default:0  }} </td>
+        <td> {{ row.total_sales|floatformat | default:0  }} </td>
+      </tr>
+      {% endfor %}
+	<tr>
+		
+		<td colspan="2">
+		</td>
+		<td>
+		 {{bigtotal.bigtotal|floatformat}}
+		</td>
+	</tr>
+    </tbody>
+    
+  </table>
+</div>
+
+ignored category: {{ignore}}
+
+{{block.super}}
+
+{% endblock %}
+{% block pagination %}{% endblock %}
